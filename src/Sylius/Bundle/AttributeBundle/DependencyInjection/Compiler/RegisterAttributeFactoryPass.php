@@ -26,7 +26,7 @@ final class RegisterAttributeFactoryPass implements CompilerPassInterface
             return;
         }
 
-        $registry = $container->getDefinition('sylius.registry.attribute_type');
+        $registry = new Reference('sylius.registry.attribute_type');
 
         foreach (array_keys($container->getParameter('sylius.attribute.subjects')) as $subject) {
             $oldAttributeFactory = $container->getDefinition(sprintf('sylius.factory.%s_attribute', $subject));
